@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 
 class Keys {
   static EdgeInsetsGeometry pagePadding = const EdgeInsets.all(15);
-  static Color primaryColor = Colors.blue;
-  static Color secondaryColor = const Color.fromARGB(255, 149, 117, 205);
-  static Color tertiaryColor = Colors.blue.shade300;
+
   static var chartData = [];
   static var transactionType = {
     'Food': const Icon(

@@ -10,6 +10,7 @@ import '../keys.dart';
 class Chart extends StatelessWidget {
   const Chart({super.key});
 
+//gets only the transactions within the last 7 days
   List<Map<String, Object>> groupedTransactionValues(
       List<Transaction> recentTransactions) {
     return List.generate(7, (index) {
@@ -29,6 +30,7 @@ class Chart extends StatelessWidget {
     }).reversed.toList();
   }
 
+//Calculate total spent in the last 7 days
   double weeklySpending(List<Map<String, Object>> groupedT) {
     return groupedT.fold(0, (sum, item) {
       return sum + (item['amount'] as double);
@@ -42,7 +44,6 @@ class Chart extends StatelessWidget {
         groupedTransactionValues(cUser.getRecentTransactions(7));
 
     return Card(
-        color: const Color.fromARGB(255, 245, 245, 245),
         elevation: 0,
         margin: Keys.pagePadding,
         clipBehavior: Clip.antiAlias,
@@ -52,6 +53,7 @@ class Chart extends StatelessWidget {
           padding: const EdgeInsets.only(top: 10, bottom: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //Each bar is built individually
             children: groupedT.map((data) {
               return ChartBar(
                   label: data['day'].toString(),

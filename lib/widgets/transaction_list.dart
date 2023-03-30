@@ -64,7 +64,6 @@ class TransationListState extends State<TransactionList> {
                 width: screenSize.width - 30,
                 child: Card(
                   elevation: 0,
-                  color: const Color.fromARGB(255, 245, 245, 245),
                   clipBehavior: Clip.antiAlias,
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -79,8 +78,8 @@ class TransationListState extends State<TransactionList> {
                           child: ShaderMask(
                               shaderCallback: (rect) => LinearGradient(
                                     colors: [
-                                      Keys.primaryColor,
-                                      Keys.secondaryColor
+                                      Colors.blue,
+                                      Color.fromARGB(255, 149, 117, 205)
                                     ],
                                     begin: Alignment.topCenter,
                                   ).createShader(rect),
@@ -97,7 +96,6 @@ class TransationListState extends State<TransactionList> {
                                   maxLines: 1,
                                   softWrap: true,
                                   style: const TextStyle(
-                                      color: Colors.black87,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 14),
                                   overflow: TextOverflow.ellipsis,
@@ -105,8 +103,6 @@ class TransationListState extends State<TransactionList> {
                             ),
                             //Date
                             Text(
-                              style: const TextStyle(
-                                  fontSize: 12, color: Colors.black26),
                               overflow: TextOverflow.ellipsis,
                               Transaction.getDate(
                                   cUser.transactions[index].date),
@@ -123,9 +119,7 @@ class TransationListState extends State<TransactionList> {
                               overflow: TextOverflow.fade,
                               textAlign: TextAlign.center,
                               style: const TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.black87,
-                                  fontWeight: FontWeight.bold),
+                                  fontSize: 14, fontWeight: FontWeight.bold),
                               cUser.transactions[index].type != 'Income'
                                   ? '-${cUser.transactions[index].amount.toStringAsFixed(2)}'
                                   : cUser.transactions[index].amount

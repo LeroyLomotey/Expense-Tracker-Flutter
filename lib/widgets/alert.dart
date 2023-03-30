@@ -18,9 +18,8 @@ class _CreateAlertState extends State<CreateAlert> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(widget.title, style: const TextStyle(color: Colors.black87)),
-      content:
-          Text(widget.content, style: const TextStyle(color: Colors.black54)),
+      title: Text(widget.title),
+      content: Text(widget.content),
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25))),
       actions: [

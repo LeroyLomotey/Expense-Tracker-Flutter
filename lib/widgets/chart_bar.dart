@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../keys.dart';
-
 class ChartBar extends StatelessWidget {
   final String label;
   final double amount;
@@ -32,10 +30,10 @@ class ChartBar extends StatelessWidget {
               heightFactor: percentTotal != 0 ? percentTotal : 0.01,
               child: Container(
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        colors: [Keys.secondaryColor, Keys.primaryColor],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter),
+                    gradient: LinearGradient(colors: [
+                      Color.fromARGB(255, 149, 117, 205),
+                      Colors.blue
+                    ], begin: Alignment.bottomCenter, end: Alignment.topCenter),
                     borderRadius: BorderRadius.circular(5)),
               )),
         ]),

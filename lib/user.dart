@@ -1,13 +1,22 @@
 import 'package:flutter/cupertino.dart';
-
+import 'package:hive/hive.dart';
 import './transaction.dart';
 
+part 'user.g.dart';
+
+@HiveType(typeId: 1)
 class User extends ChangeNotifier {
+  @HiveField(0)
   String name;
+  @HiveField(1)
   double balance;
+  @HiveField(3)
   String currency;
+  @HiveField(4)
   List<Transaction> transactions = [];
+  @HiveField(5)
   bool darkMode;
+  @HiveField(6)
   bool notify;
 
   User(
@@ -15,7 +24,9 @@ class User extends ChangeNotifier {
       required this.balance,
       this.darkMode = false,
       this.notify = false,
-      this.currency = 'Dollar'});
+      this.currency = 'Dollar'}) {
+    notifyListeners();
+  }
 
   List<Transaction> getTransactions() {
     return transactions;

@@ -14,12 +14,11 @@ class DebitCard extends StatefulWidget {
 class DebitCardState extends State<DebitCard> {
   @override
   Widget build(BuildContext context) {
-    final User cUser = Provider.of<User>(context);
+    //cUser = Provider.of<User>(context);
+    late User cUser = Provider.of<User>(context);
     String currencySymbol = Keys.currencies[cUser.currency] as String;
-
     return Card(
       elevation: 5,
-      shadowColor: Keys.primaryColor,
       clipBehavior: Clip.antiAlias,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -29,7 +28,7 @@ class DebitCardState extends State<DebitCard> {
         padding: Keys.pagePadding,
         decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: [Keys.secondaryColor, Keys.primaryColor],
+                colors: [Color.fromARGB(255, 149, 117, 205), Colors.blue],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight)),
         child: Column(
@@ -44,7 +43,7 @@ class DebitCardState extends State<DebitCard> {
                   Text(
                       style: const TextStyle(fontSize: 20, color: Colors.white),
                       '$currencySymbol${cUser.balance.toStringAsFixed(2)}'),
-                  Divider(height: 8, color: Keys.secondaryColor),
+                  Divider(height: 8, color: Color.fromARGB(255, 149, 117, 205)),
                   const Text(
                       style: TextStyle(fontSize: 12, color: Colors.white),
                       'Balance'),
@@ -61,7 +60,7 @@ class DebitCardState extends State<DebitCard> {
                     letterSpacing: 4,
                     wordSpacing: 12,
                     color: Colors.white),
-                '**** **** **** 123',
+                '**** **** **** 222',
               ),
             ),
             //-------Name VISA

@@ -17,7 +17,6 @@ class _PieChartWidgetState extends State<PieChartWidget> {
       width: screenSize.width,
       height: 300,
       child: Card(
-        color: const Color.fromARGB(255, 245, 245, 245),
         elevation: 2,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(

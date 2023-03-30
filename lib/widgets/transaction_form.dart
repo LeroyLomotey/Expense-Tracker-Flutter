@@ -16,7 +16,7 @@ class TransactionForm extends StatefulWidget {
 class _TransactionFormState extends State<TransactionForm> {
   final TextEditingController _title = TextEditingController();
   final TextEditingController _amount = TextEditingController();
-  String _date = 'Enter date';
+  String _date = 'Choose date';
   String _type = 'Choose type';
   DateTime dateInput = DateTime.now();
   String typeInput = 'Miscellanous';
@@ -44,7 +44,7 @@ class _TransactionFormState extends State<TransactionForm> {
           children: [
             //--------------------------------------Title
             ListTile(
-              leading: Icon(Icons.edit_rounded, color: Keys.tertiaryColor),
+              leading: Icon(Icons.edit_rounded, color: Colors.blue.shade300),
               title: TextField(
                 controller: _title,
                 decoration: const InputDecoration(
@@ -58,7 +58,7 @@ class _TransactionFormState extends State<TransactionForm> {
             ListTile(
               leading: Icon(
                 Icons.paid,
-                color: Keys.tertiaryColor,
+                color: Colors.blue.shade300,
               ),
               title: TextField(
                   controller: _amount,
@@ -70,11 +70,10 @@ class _TransactionFormState extends State<TransactionForm> {
               child: ListTile(
                 title: Text(
                   _date,
-                  style: const TextStyle(color: Colors.black54),
                 ),
                 leading: Icon(
                   Icons.calendar_today,
-                  color: Keys.tertiaryColor,
+                  color: Colors.blue.shade300,
                 ),
               ),
               onTap: () async {
@@ -99,7 +98,7 @@ class _TransactionFormState extends State<TransactionForm> {
             //--------------------------------------------Transaction Type
             ListTile(
               leading: Icon(
-                  size: 24, Icons.receipt_rounded, color: Keys.tertiaryColor),
+                  size: 24, Icons.receipt_rounded, color: Colors.blue.shade300),
               title: PopupMenuButton(
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -115,16 +114,13 @@ class _TransactionFormState extends State<TransactionForm> {
                   _type = value;
                   typeInput = value;
                 }),
-                child: Text(
-                    textAlign: TextAlign.left,
-                    style: const TextStyle(color: Colors.black54),
-                    _type),
+                child: Text(textAlign: TextAlign.left, _type),
               ),
             ),
 
             //---------------------------------------------------------------Add new Transaction
             IconButton(
-              color: Keys.tertiaryColor,
+              color: Colors.blue.shade300,
               onPressed: () {
                 if (_title.text.isNotEmpty &&
                     _amount.text.isNotEmpty &&
@@ -143,7 +139,7 @@ class _TransactionFormState extends State<TransactionForm> {
 
                     _title.text = '';
                     _amount.text = '';
-                    _date = '';
+                    _date = 'Choose date';
                     dateInput = DateTime.now();
                     _type = 'Choose type';
 
